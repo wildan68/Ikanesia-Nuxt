@@ -138,7 +138,7 @@
         height: 3em;
         width: 80%;
         border-radius: 7px;
-        background-color: #f9f9f9;
+        background-color: var(--white-light);
         padding: 0 5% 0 5%;
         transition: all 0.2s linear;
     }
@@ -183,7 +183,7 @@
         transition: all 0.5s ease;
         cursor: pointer;
         font-weight: 600;
-        color: var(--light-black);
+        color: var(--black-light);
         position: relative;
         border-bottom: 3px solid var(--white);
     }
@@ -191,7 +191,7 @@
         border-bottom: 3px solid var(--green);
     }
     .header .wrapper .nav-menu nav.menu-list:hover {
-        background-color: var(--light-white);
+        background-color: var(--white-light);
         color: var(--black);
     }
     
@@ -204,12 +204,15 @@
     }
     @media (max-width: 1400px) {
         .header .wrapper {
-            width: 95%;
+            width: 80%;
         }
     }
     @media (max-width: 1100px) {
         .header {
             padding: 10px 5% 10px 5%;
+        }
+        .header .wrapper {
+            width: 95%;
         }
         .header .wrapper .nav-menu-overlay {
             display: none;
@@ -267,7 +270,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--light-black);
+            color: var(--black-light);
             cursor: pointer;
         }
         .header .wrapper .toggle-menu .btn-toggle ion-icon {
@@ -275,7 +278,7 @@
             height: 24px;
         }
         .header .wrapper .toggle-menu .btn-toggle:hover {
-            background-color: var(--light-white);
+            background-color: var(--white-light);
             color: var(--black);
         }
     }

@@ -13,6 +13,11 @@
         components: {
             Header,
             HomeContent,
+        },
+        head() {
+          return {
+            title: 'Home | MajorFish Store'
+          }
         }
     }
 </script>

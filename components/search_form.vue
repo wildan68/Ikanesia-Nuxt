@@ -1,14 +1,14 @@
 <template>
     <div class="search_popup">
-        <div v-if="loading" class="loading">
+        <div v-if="dataSearch == null" class="loading">
             <img src="~/assets/img/ico/loading-green.svg">
             Mohon tunggu, yay!
         </div>
         <div v-else class="result">
             <div v-if="dataSearch.status == 1">
                 Hasil pencarian dari <h4>{{ InputSearch }}</h4>
-                <div class="result-box">
-                    <div class="result-item" v-for="(d, index) in dataSearch.data.slice(0, 5)" :key="index">
+                <div class="result-box">                  
+                    <div class="result-item" v-for="(d, index) in dataSearch.data.slice(0, 5)" :key="index" @click="$nuxt.$router.push('/detail/'+d.id_ikan+'/'+$conf.url_fetch(d.nama.toLowerCase()))">
                         <div class="img">
                             <img :src="'/upload/'+d.gambar">
                         </div>
@@ -40,33 +40,14 @@ export default {
     },
     data() {
         return {
-            loading: true,
-            dataSearch: [],
+            dataSearch: null,
         }
     },
     watch: {
-        InputSearch: function() {
-            this.loading = true
-                setTimeout(() => {
-                    this.loading = false
-                    axios
-                        .post(this.$conf.URL_API + this.$conf.SEARCH, {
-                            field: this.InputSearch
-                        })
-                        .then(response => {
-                            this.dataSearch = response.data
-                        })
-                        .catch(error => {
-                            console.log(error)
-                        })
-                        .finally()
-                }, 1000)
-        }
-    },
-    created() {    
-        setTimeout(() => {
-            this.loading = false
-            axios
+        InputSearch: async function() {
+            this.dataSearch = null
+
+            await axios
                 .post(this.$conf.URL_API + this.$conf.SEARCH, {
                     field: this.InputSearch
                 })
@@ -77,7 +58,20 @@ export default {
                     console.log(error)
                 })
                 .finally()
-        }, 1000) 
+        }
+    },
+    async created() {  
+        await axios
+            .post(this.$conf.URL_API + this.$conf.SEARCH, {
+                field: this.InputSearch
+            })
+            .then(response => {
+                this.dataSearch = response.data
+            })
+            .catch(error => {
+                console.log(error)
+            })
+            .finally() 
     }
 }
 </script>
@@ -135,7 +129,7 @@ export default {
         cursor: pointer;
     }
     .search_popup .result .result-box .result-item:hover {
-        background-color: var(--light-white);
+        background-color: var(--white-light);
     }
     .search_popup .result .result-box .result-item .img {
         width: 20%;
@@ -165,10 +159,10 @@ export default {
         margin-top: 10px;
         padding: 10px 0 10px 0;
         font-weight: 600;
-        color: var(--light-black);
+        color: var(--black-light);
     }
     .search_popup .result .result-box .view-more:hover {
-        background-color: var(--light-white);
+        background-color: var(--white-light);
         color: var(--black);
     }
     .search_popup .result .not-found img {

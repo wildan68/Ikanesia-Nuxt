@@ -7,6 +7,8 @@
           <div class="banner-news" @mouseover="bannerHover" @mouseout="bannerBlur">
             <BannerNews/>
           </div>
+          <h3>Semua Kategori</h3>
+          <CatMenu/>
           <div class="title">
             <h3>Terbaru, nih</h3>
             <hr/>
@@ -21,7 +23,7 @@
             <hr/>
           </div>
           <div class="most-searched">
-            <MostSearched/>
+            <ItemBox api_url="get_ikan.php"/>
           </div>
         </div>
       </div>
@@ -32,13 +34,16 @@
 <script>
     import BannerNews from '../../components/banner_news.vue'
     import ItemNews from '../../components/item_news.vue'
-    import MostSearched from '../../components/most_searched.vue'
+    import ItemBox from '../../components/item_box.vue'
+    import CatMenu from '../../components/category.vue'
+
     export default {
         name: 'Home',
         components: {
             BannerNews,
             ItemNews,
-            MostSearched,
+            ItemBox,
+            CatMenu,
         },
         methods: {
           bannerHover() {
@@ -57,7 +62,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .home {
         display: flex;
     }

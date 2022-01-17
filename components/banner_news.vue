@@ -54,6 +54,7 @@
     .home .left .banner-news .swiper {
         width: 40em;
         height: 20em;
+        overflow: hidden;
     }
     
     .home .left .banner-news .swiper-slide {
@@ -90,6 +91,7 @@
     @media (max-width: 768px) {
         .home .left .banner-news .swiper {
             width: 100%;
+            height: 15em;
         }
     }
 </style>

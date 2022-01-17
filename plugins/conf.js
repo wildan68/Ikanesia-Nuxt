@@ -3,9 +3,10 @@ import Vue from 'vue'
 export default ({ app }, inject) => {
     inject('conf', Vue.observable({
         /*GLOBAL VARIABLE*/
-        URL_API: 'http://192.168.157.1/ikanesia_api/',
+        URL_API: 'https://wildanrizky.tech/ikanesia_api/',
         GET_IKAN_NEWS: 'get_ikan.php',
         SEARCH: 'search.php',
+        GET_IKAN_DETAIL: 'detail_ikan.php',
 
         /*GLOBAL METHOD*/
         rupiah(angka) {
@@ -15,11 +16,11 @@ export default ({ app }, inject) => {
                 if (i % 3 == 0) rupiah += angkarev.substr(i, 3) + '.';
             return 'Rp. ' + rupiah.split('', rupiah.length - 1).reverse().join('');
         },
-        url_fetch(context) {
-            return context.replaceAll(' ', '-')
+        url_fetch(s) {
+            return s.replaceAll(' ', '-')
         },
-        url_fetch_rever(context) {
-            return context.replaceAll('-', ' ')
+        url_fetch_rever(s) {
+            return s.replaceAll('-', ' ')
         },
         capitalize(str) {
             var splitStr = str.toLowerCase().split(' ');
@@ -30,6 +31,22 @@ export default ({ app }, inject) => {
             }
             // Directly return the joined string
             return splitStr.join(' ');
+        },
+        rating(context) {
+            if (context <= 2) {
+                return 'star-outline'
+            } else if (context > 2 && context < 4) {
+                return 'star-half-outline'
+            } else {
+                return 'star'
+            }
+        },
+        excerpt_nama(string) {
+            if (string.length > 12) {
+                return string = string.substr(0, 10) + '...'
+            } else {
+                return string.substr(0, 10)
+            }
         },
     }))
 }
