@@ -30,7 +30,7 @@
                 if (this.$nuxt.$route.params.id != null && this.$nuxt.$route.params.detail != null) {
                     return this.$conf.capitalize(this.$conf.url_fetch_rever(this.$nuxt.$route.params.detail))
                 } else {
-                    return 'Tidak Ditemukans'
+                    return 'Tidak Ditemukan'
                 }
             }
         },
