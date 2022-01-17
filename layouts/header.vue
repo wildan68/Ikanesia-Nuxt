@@ -119,7 +119,7 @@
     }
     
     .header .wrapper .logo img {
-        width: 120px;
+        width: 180px;
     }
     
     .header .wrapper .search-form {
