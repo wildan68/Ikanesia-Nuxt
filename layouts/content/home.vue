@@ -19,7 +19,7 @@
         </div>
         <div class="right">
           <div class="title">
-            <h3>Paling banyak dicari</h3>
+            <h3>Paling banyak dicari hihi</h3>
             <hr/>
           </div>
           <div class="most-searched">
