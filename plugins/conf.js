@@ -17,10 +17,10 @@ export default ({ app }, inject) => {
             return 'Rp. ' + rupiah.split('', rupiah.length - 1).reverse().join('');
         },
         url_fetch(s) {
-            return s.replaceAll(' ', '-')
+            return s.replace(/ /g, '-')
         },
         url_fetch_rever(s) {
-            return s.replaceAll('-', ' ')
+            return s.replace(/-/g, ' ')
         },
         capitalize(str) {
             var splitStr = str.toLowerCase().split(' ');
