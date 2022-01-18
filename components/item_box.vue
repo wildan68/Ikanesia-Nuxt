@@ -11,7 +11,7 @@
                 </div>
                 <div class="item-info">
                     {{ $conf.excerpt_nama(d.nama) }}
-                    <h4>Rp. 99.000,-</h4>
+                    <h4> {{ $conf.rupiah(d.harga) }} </h4>
                     <div class="location">
                         <ion-icon name="location"></ion-icon> Tegal, Jawa Tengah
                     </div>
@@ -35,6 +35,7 @@
         name: 'item_box',
         props: {
             api_url: String,
+            func: String,
         },
         data() {
             return {
@@ -43,10 +44,16 @@
             }
         },
         async mounted() {
-            if (window.innerWidth >= 768) {
-                this.width = 8
-            } else {
-                this.width = 6
+            if (this.func == 'search') {
+                this.width = 20
+            }
+            else {
+                if (window.innerWidth >= 768) {
+                    this.width = 8
+                }
+                else {
+                    this.width = 6
+                }
             }
             await axios
                 .post(this.$conf.URL_API + this.api_url)
@@ -63,12 +70,12 @@
 </script>
 
 <style scoped>
-    .home .right .most-searched .item-box-container {
+    .item-box-container {
         display: grid;
         grid-template-columns: auto auto auto auto;
     }
     
-    .home .right .most-searched .item-box-container .item-box {
+    .item-box-container .item-box {
         width: 100%;
         height: auto;
         display: flex;
@@ -77,7 +84,7 @@
         padding: 1em 0 1em 0;
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside {
+    .item-box-container .item-box .item-box-inside {
         width: 10em;
         background-color: var(--white);
         height: 15em;
@@ -94,11 +101,11 @@
         position: relative;
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside:hover {
+    .item-box-container .item-box .item-box-inside:hover {
         color: var(--green-dark);
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside#pre-load {
+    .item-box-container .item-box .item-box-inside#pre-load {
         background: linear-gradient(130deg, #e6e6e6, #d2d2d2, #a8a8a8);
         background-size: 600% 600%;
         animation: preLoad 1.5s ease infinite;
@@ -115,7 +122,7 @@
             background-position: 0% 4%
         }
     }
-    .home .right .most-searched .item-box-container .item-box .item-box-inside .rating {
+    .item-box-container .item-box .item-box-inside .rating {
         position: absolute;
         top: 5px;
         left: 5px;
@@ -128,53 +135,53 @@
         align-items: center;
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside .rating ion-icon {
+    .item-box-container .item-box .item-box-inside .rating ion-icon {
         margin-right: 3px;
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside .img {
+    .item-box-container .item-box .item-box-inside .img {
         height: 6em;
         width: 100%;
         overflow: hidden;
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside .img img {
+    .item-box-container .item-box .item-box-inside .img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside .item-info {
+    .item-box-container .item-box .item-box-inside .item-info {
         padding: 10px;
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside .item-info h4 {
+    .item-box-container .item-box .item-box-inside .item-info h4 {
         margin: 0;
     }
     
-    .home .right .most-searched .item-box-container .item-box .item-box-inside .item-info .location {
+    .item-box-container .item-box .item-box-inside .item-info .location {
         font-size: 10px;
         color: var(--black-light);
         margin-top: 10px;
     }
     
     @media (max-width: 1366px) {
-        .home .right .most-searched .item-box-container .item-box {
+        .item-box-container .item-box {
             height: auto;
         }
-        .home .right .most-searched .item-box-container .item-box .item-box-inside {
+        .item-box-container .item-box .item-box-inside {
             width: 9em;
         }
-        .home .right .most-searched .item-box-container .item-box .item-box-inside .img {
+        .item-box-container .item-box .item-box-inside .img {
             width: 100%;
         }
     }
     
     @media (max-width: 768px) {
-        .home .right .most-searched .item-box-container {
+        .item-box-container {
             grid-template-columns: auto auto auto;
         }
-        .home .right .most-searched .item-box-container .item-box {
+        .item-box-container .item-box {
             height: auto;
         }
     }

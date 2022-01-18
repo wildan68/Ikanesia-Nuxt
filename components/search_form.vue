@@ -17,7 +17,7 @@
                             <h4>{{ $conf.rupiah(d.harga) }}</h4>
                         </div>
                     </div>
-                    <button class="view-more" v-if="dataSearch.data.length >= 5">
+                    <button class="view-more" v-if="dataSearch.data.length >= 5" @click="$nuxt.$router.push('/search/'+$conf.url_fetch(InputSearch))">
                         Lihat Lainnya
                     </button>
                 </div>

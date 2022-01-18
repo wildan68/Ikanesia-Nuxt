@@ -38,7 +38,7 @@
     import CatMenu from '../../components/category.vue'
 
     export default {
-        name: 'Home',
+        name: 'home_layout',
         components: {
             BannerNews,
             ItemNews,
@@ -58,7 +58,7 @@
               document.getElementById("navBannerNext").style.transform = 'translate(0%)'
               document.getElementById("navBannerNext").style.opacity = '0'
           }
-        }
+        },
     }
 </script>
 

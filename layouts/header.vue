@@ -8,12 +8,12 @@
         <img src="~/assets/img/logo.png" @click="$router.push('/')">
       </div>
       <div class="search-form" id="search-form">
-        <form>
+        <div class="form">
           <input type="text" id="search-input" name="search-input" @input="searchInput = $event.target.value" placeholder="Cari Ikan.." autocomplete="off">
-          <button>
+          <button @click="searchInput.length == 0 ? $toast.error('Kolom Pencarian Kosong') : $nuxt.$router.push('/search/'+$conf.url_fetch(searchInput))">
             <ion-icon name="search"></ion-icon>
           </button>
-        </form>
+        </div>
         <SearchPopup v-if="searchInput != ''" :InputSearch="searchInput"/>
       </div>
       <div class="nav-menu-overlay" id="nav-menu-overlay" @click="onMenuClose"></div>
@@ -129,12 +129,12 @@
         position: relative;
     }
     
-    .header .wrapper .search-form form {
+    .header .wrapper .search-form .form {
         position: relative;
         width: 80%;
     }
     
-    .header .wrapper .search-form form input[type=text] {
+    .header .wrapper .search-form .form input[type=text] {
         height: 3em;
         width: 80%;
         border-radius: 7px;
@@ -143,7 +143,7 @@
         transition: all 0.2s linear;
     }
     
-    .header .wrapper .search-form form button {
+    .header .wrapper .search-form .form button {
         background-color: var(--green);
         color: var(--white);
         display: flex;

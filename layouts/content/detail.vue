@@ -84,7 +84,7 @@
     import NotFound from '../../components/not_found.vue'
 
     export default {
-        name: 'detail_item',
+        name: 'detail_layout',
         components: {
             LoadPage,
             NotFound,

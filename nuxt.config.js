@@ -1,4 +1,5 @@
 module.exports = {
+    modules: ['@nuxtjs/toast'],
     /*
      ** Headers of the page
      */
@@ -28,6 +29,11 @@ module.exports = {
         { src: './plugins/vue-awesome-swiper.js', ssr: false },
         { src: './plugins/conf.js' },
     ],
+    // Toast
+    toast: {
+        position: 'top-center',
+        duration: 1000,
+    },
     /*
      ** Build configuration
      */
