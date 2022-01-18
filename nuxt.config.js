@@ -28,6 +28,7 @@ module.exports = {
     plugins: [
         { src: './plugins/vue-awesome-swiper.js', ssr: false },
         { src: './plugins/conf.js' },
+        { src: './plugins/ripple.js', ssr: false },
     ],
     // Toast
     toast: {

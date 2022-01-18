@@ -1,7 +1,7 @@
 <template>
   <div class="mainapp">
     <div v-if="$nuxt.$route.params.detail != null && $nuxt.$route.params.id != null">
-        <Header />
+        <Header v-if="!isMobile"/>
         <Detail />
     </div>
     <NotFound v-else msg="Halaman tidak ditemukan"/>
@@ -23,6 +23,7 @@
         data() {
             return {
                 title_page: '',
+                isMobile: false,
             }
         },
         methods: {
@@ -32,6 +33,14 @@
                 } else {
                     return 'Tidak Ditemukan'
                 }
+            }
+        },
+        mounted() {
+            if (window.screen.availWidth > 868) {
+                this.isMobile = false
+            }
+            else {
+                this.isMobile = true
             }
         },
         head() {

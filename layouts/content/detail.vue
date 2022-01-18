@@ -1,6 +1,7 @@
 <template>
-  <div class="wrapper-content">
+  <div class="wrapper-content" :style="isMobile ? 'margin-top: 0' : 0">
     <div class="wrapper" v-if="dataIkan != null">
+      <HeaderDetail v-if="isMobile"/>
       <div v-if="dataIkan.status == 1">
         <div class="detail-item" v-for="(d, index) in dataIkan.data" :key="index">
           <div class="product-info">
@@ -82,12 +83,14 @@
     import axios from 'axios'
     import LoadPage from '../../components/load_page.vue'
     import NotFound from '../../components/not_found.vue'
+    import HeaderDetail from '../../components/header_detail.vue'
 
     export default {
         name: 'detail_layout',
         components: {
             LoadPage,
             NotFound,
+            HeaderDetail,
         },
         data() {
             return {
@@ -95,6 +98,7 @@
                 dataIkan: null,
                 quantity: 1,
                 quantity_total: '',
+                isMobile: false,
             }
         },
         watch: {
@@ -133,6 +137,11 @@
         },
         async mounted() {
             this.data_name = this.$conf.url_fetch_rever($nuxt.$route.params.detail)
+            if (window.screen.availWidth > 868) {
+                this.isMobile = false
+            } else {
+                this.isMobile = true
+            }
             await axios
                 .post(this.$conf.URL_API + this.$conf.GET_IKAN_DETAIL, {
                     id: this.$nuxt.$route.params.id,
@@ -317,6 +326,15 @@
     @media (max-width:868px) {
         .detail-item {
             display: block;
+        }
+        .detail-item .product-info {
+            padding: 0;
+            margin: -2% -4% 0 -4%;
+            overflow: hidden;
+        }
+        .detail-item .product-info .img {
+            width: 100%;
+            height: 30em;
         }
         .detail-item .desc-info {
             height: auto;
