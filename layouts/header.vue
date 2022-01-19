@@ -10,7 +10,7 @@
       <div class="search-form" id="search-form">
         <div class="form">
           <input type="text" id="search-input" name="search-input" @input="searchInput = $event.target.value" placeholder="Cari Ikan.." autocomplete="off">
-          <button @click="searchInput.length == 0 ? $toast.error('Kolom Pencarian Kosong') : $nuxt.$router.push('/search/'+$conf.url_fetch(searchInput))">
+          <button @click="searchInput.length == 0 ? $toast.warning('Kolom Pencarian Kosong') : $nuxt.$router.push('/search/'+$conf.url_fetch(searchInput))">
             <ion-icon name="search"></ion-icon>
           </button>
         </div>
