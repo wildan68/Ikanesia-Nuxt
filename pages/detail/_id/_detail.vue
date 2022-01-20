@@ -36,7 +36,7 @@
             }
         },
         mounted() {
-            if (window.screen.availWidth > 868) {
+            if (document.body.offsetWidth > 868) {
                 this.isMobile = false
             }
             else {

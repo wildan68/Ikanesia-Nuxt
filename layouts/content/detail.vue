@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper-content" :style="isMobile ? 'margin-top: 0' : 0">
     <div class="wrapper" v-if="dataIkan != null">
-      <HeaderDetail v-if="isMobile" />
       <div v-if="dataIkan.status == 1">
+        <HeaderDetail v-if="isMobile" />
         <div class="detail-item" v-for="(d, index) in dataIkan.data" :key="index">
           <div class="product-info">
             <div class="img">
@@ -139,7 +139,7 @@
         },
         async mounted() {
             this.data_name = this.$conf.url_fetch_rever($nuxt.$route.params.detail)
-            if (window.screen.availWidth > 868) {
+            if (document.body.offsetWidth > 868) {
                 this.isMobile = false
             } else {
                 this.isMobile = true
