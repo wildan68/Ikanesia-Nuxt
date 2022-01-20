@@ -50,6 +50,13 @@ export default ({ app }, inject) => {
         },
         parseInt(i) {
             return this.parseInt(i)
+        },
+        isMobile() {
+            if (window.screen.availWidth > 1100) {
+                return false
+            } else {
+                return true
+            }
         }
     }))
 }

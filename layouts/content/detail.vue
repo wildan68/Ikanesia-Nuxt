@@ -17,7 +17,7 @@
                 <b :style="d.status == 'Ada' ? 'color: var(--green-dark)' : 'color: var(--red)'">{{ d.status }}</b>
               </span>
               <div class="rating">
-                <rating :rating="d.rating" :increment="0.5" :max-rating="5" :read-only="true" :star-size="14"
+                <rating :rating="parseFloat(d.rating)" :increment="0.5" :max-rating="5" :read-only="true" :star-size="14"
                   :show-rating="false"></rating>
                 <span class="text">{{ d.rating }}</span>
               </div>

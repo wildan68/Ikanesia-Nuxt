@@ -14,7 +14,7 @@
                         <ion-icon name="location"></ion-icon> Tegal, Jawa Tengah
                     </div>
                     <div class="rating">
-                        <rating :rating="d.rating" :increment="0.5" :max-rating="5" :read-only="true" :star-size="14" :show-rating="false"></rating>
+                        <rating :rating="parseFloat(d.rating)" :increment="0.5" :max-rating="5" :read-only="true" :star-size="14" :show-rating="false"></rating>
                         <span class="text">{{ d.rating }}</span>
                     </div>
                 </div>

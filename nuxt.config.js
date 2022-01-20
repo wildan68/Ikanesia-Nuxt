@@ -26,7 +26,7 @@ module.exports = {
     css: ['swiper/swiper-bundle.min.css'],
     plugins: [
         { src: './plugins/vue-awesome-swiper.js', ssr: false },
-        { src: './plugins/conf.js' },
+        { src: './plugins/conf.js', },
         { src: './plugins/ripple.js', ssr: false },
         { src: './plugins/toast.js', ssr: false },
         { src: './plugins/rating.js', ssr: false },
