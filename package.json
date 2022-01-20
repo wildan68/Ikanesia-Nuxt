@@ -15,12 +15,14 @@
     },
     "dependencies": {
         "@nuxtjs/toast": "^3.3.1",
+        "awesome-vue-star-rating": "^1.0.9",
         "axios": "^0.24.0",
         "nuxt": "^2.0.0",
         "swiper": "^6.8.4",
         "vue": "^2.6.14",
         "vue-awesome-swiper": "^3.1.3",
         "vue-ripple-directive": "^2.0.1",
+        "vue-star-rating": "^1.7.0",
         "vue-toast-notification": "^0.6.2",
         "vue3-whr-ripple-directive": "^1.0.0"
     },

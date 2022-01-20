@@ -48,5 +48,8 @@ export default ({ app }, inject) => {
                 return string.substr(0, 10)
             }
         },
+        parseInt(i) {
+            return this.parseInt(i)
+        }
     }))
 }

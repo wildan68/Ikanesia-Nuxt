@@ -29,6 +29,7 @@ module.exports = {
         { src: './plugins/conf.js' },
         { src: './plugins/ripple.js', ssr: false },
         { src: './plugins/toast.js', ssr: false },
+        { src: './plugins/rating.js', ssr: false },
     ],
     // Toast
     /*

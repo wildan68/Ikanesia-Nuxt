@@ -2,10 +2,8 @@
     <div class="item-box-container" v-if="data_item != null">
         <div class="item-box" v-for="(d, index) in data_item.slice(0, width)" :key="index">
             <nuxt-link :to="'/detail/'+d.id_ikan+'/'+$conf.url_fetch(d.nama.toLowerCase())" class="item-box-inside">
-                <div class="rating">
-                    <ion-icon :name="$conf.rating(d.rating)"></ion-icon>
-                    {{ d.rating }}
-                </div>
+                
+                
                 <div class="img">
                     <img :src="'/upload/'+d.gambar">
                 </div>
@@ -14,6 +12,10 @@
                     <h4> {{ $conf.rupiah(d.harga) }} </h4>
                     <div class="location">
                         <ion-icon name="location"></ion-icon> Tegal, Jawa Tengah
+                    </div>
+                    <div class="rating">
+                        <rating :rating="d.rating" :increment="0.5" :max-rating="5" :read-only="true" :star-size="14" :show-rating="false"></rating>
+                        <span class="text">{{ d.rating }}</span>
                     </div>
                 </div>
             </nuxt-link>
@@ -41,6 +43,7 @@
             return {
                 data_item: null,
                 width: null,
+                rating: 5,
             }
         },
         async mounted() {
@@ -87,7 +90,7 @@
     .item-box-container .item-box .item-box-inside {
         width: 10em;
         background-color: var(--white);
-        height: 15em;
+        height: 17em;
         border-radius: 7px;
         display: flex;
         flex-direction: column;
@@ -123,22 +126,14 @@
         }
     }
     .item-box-container .item-box .item-box-inside .rating {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-        background-color: rgba(255, 255, 0, 0.8);
-        color: var(--black);
         display: flex;
-        padding: 2px 5px 2px 5px;
-        border-radius: 7px;
-        display: flex;
+        margin-top: 10px;
         align-items: center;
     }
-    
-    .item-box-container .item-box .item-box-inside .rating ion-icon {
-        margin-right: 3px;
+    .item-box-container .item-box .item-box-inside .rating .text {
+        margin-left: 5px;
+        color: var(--black-light);
     }
-    
     .item-box-container .item-box .item-box-inside .img {
         height: 6em;
         width: 100%;

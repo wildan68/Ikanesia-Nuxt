@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper-content" :style="isMobile ? 'margin-top: 0' : 0">
     <div class="wrapper" v-if="dataIkan != null">
-      <HeaderDetail v-if="isMobile"/>
+      <HeaderDetail v-if="isMobile" />
       <div v-if="dataIkan.status == 1">
         <div class="detail-item" v-for="(d, index) in dataIkan.data" :key="index">
           <div class="product-info">
@@ -16,9 +16,11 @@
                 :style="d.status == 'Ada' ? 'background-color: var(--green-light)' : 'background-color: var(--red-light)'">
                 <b :style="d.status == 'Ada' ? 'color: var(--green-dark)' : 'color: var(--red)'">{{ d.status }}</b>
               </span>
-              <span class="rating">
-                &#8226; <ion-icon :name="$conf.rating(d.rating)"></ion-icon>{{ d.rating }}
-              </span>
+              <div class="rating">
+                <rating :rating="d.rating" :increment="0.5" :max-rating="5" :read-only="true" :star-size="14"
+                  :show-rating="false"></rating>
+                <span class="text">{{ d.rating }}</span>
+              </div>
             </div>
             <h2>{{ $conf.rupiah(d.harga) }}</h2>
             <hr />
@@ -71,7 +73,7 @@
           </div>
         </div>
       </div>
-      <NotFound msg="Maaf, Item tidak tersedia" v-else/>
+      <NotFound msg="Maaf, Item tidak tersedia" v-else />
     </div>
     <div class="wrapper" v-else>
       <LoadPage />
@@ -196,6 +198,7 @@
     
     .detail-item .desc-info .sub-desc {
         display: flex;
+        align-items: center;
     }
     
     .detail-item .desc-info .sub-desc .stok {
@@ -205,16 +208,15 @@
     }
     
     .detail-item .desc-info .sub-desc .rating {
-        margin-left: 10px;
         display: flex;
         align-items: center;
-        font-weight: 600;
+        margin-left: 20px;
     }
     
-    .detail-item .desc-info .sub-desc .rating ion-icon {
+    .detail-item .desc-info .sub-desc .rating .text {
         margin-left: 5px;
-        margin-right: 5px;
-        color: var(--yellow);
+        color: var(--black-light);
+        font-weight: 600;
     }
     
     .detail-item .desc-info hr {
