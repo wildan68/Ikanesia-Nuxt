@@ -3,7 +3,7 @@ import Vue from 'vue'
 export default ({ app }, inject) => {
     inject('conf', Vue.observable({
         /*GLOBAL VARIABLE*/
-        URL_API: 'https://wildanrizky.tech/ikanesia_api/',
+        URL_API: 'https://majorwebapi.herokuapp.com/mfstore/',
         GET_IKAN_NEWS: 'get_ikan.php',
         SEARCH: 'search.php',
         GET_IKAN_DETAIL: 'detail_ikan.php',
