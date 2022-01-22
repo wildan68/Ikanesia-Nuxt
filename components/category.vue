@@ -1,34 +1,9 @@
 <template>
     <div class="category-menu">
-        <div class="cat-box"> 
+        <div class="cat-box" v-for="(cat, index) in items" :key="index" @click="$toast.info('Belum dibuat')"> 
             <div class="cat-box-item">
-                <img src="~/assets/img/ico/betta-fish.svg" class="ico"/>
-                Ikan<br>Hias
-            </div>
-        </div>
-        <div class="cat-box">
-            <div class="cat-box-item">
-                <img src="~/assets/img/ico/fish.svg" class="ico"/>
-                Ikan<br>Indukan              
-            </div>
-        </div>
-        <div class="cat-box">
-            <div class="cat-box-item">
-                <img src="~/assets/img/ico/food-fish.svg" class="ico"/>
-                Makanan<br>
-                Vitamin, dll      
-            </div>
-        </div>
-        <div class="cat-box">
-            <div class="cat-box-item">
-                <img src="~/assets/img/ico/aquarium.svg" class="ico"/>
-                Aquarium<br>    
-            </div>
-        </div>
-        <div class="cat-box">
-            <div class="cat-box-item">
-                <img src="~/assets/img/ico/more.svg" class="ico"/>
-                Lain Lain<br>    
+                <img :src="'/assets/'+cat.icon" class="ico"/>
+                <span v-html="cat.label"></span>
             </div>
         </div>
     </div>
@@ -37,6 +12,9 @@
 <script>
     export default {
         name: 'cat_menu',
+        props: {
+            items: Array,
+        }
     }
 </script>
 

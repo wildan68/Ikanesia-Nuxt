@@ -8,7 +8,7 @@
             <BannerNews/>
           </div>
           <h3>Semua Kategori</h3>
-          <CatMenu/>
+          <CatMenu :items="categoryMenu"/>
           <div class="title">
             <h3>Terbaru, nih</h3>
             <hr/>
@@ -44,6 +44,31 @@
             ItemNews,
             ItemBox,
             CatMenu,
+        },
+        data() {
+          return {
+            categoryMenu: [{
+              label: 'Ikan<br>Hias',
+              icon: 'betta-fish.svg',
+              to: '#',
+            }, {
+              label: 'Ikan<br>Indukan',
+              icon: 'fish.svg',
+              to: '#',
+            },{
+              label: 'Pakan<br>Vitamin, dll',
+              icon: 'food-fish.svg',
+              to: '#',
+            }, {
+              label: 'Aquarium',
+              icon: 'aquarium.svg',
+              to: '#',
+            },{
+              label: 'Lain Lain',
+              icon: 'more.svg',
+              to: '#',
+            }, ]
+          }
         },
         methods: {
           bannerHover() {

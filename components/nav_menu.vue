@@ -62,7 +62,7 @@
                     x.style.animation = 'subMenuShow 0.5s ease'
                     x.style.display = "block"
                     chevron.style.animation = 'chevronUp 0.5s ease'
-                    setTimeout(() => chevron.style.transform = 'rotate(180deg)', 500)
+                    setTimeout(() => chevron.style.transform = 'rotate(-180deg)', 500)
                 } else {
                     x.style.animation = 'subMenuClose 0.5s ease'
                     chevron.style.animation = 'chevronDown 0.5s ease'
@@ -192,12 +192,12 @@
                 transform: rotate(0deg);
             }
             to {
-                transform: rotate(180deg);
+                transform: rotate(-180deg);
             }
         }
         @keyframes chevronDown {
             from {
-                transform: rotate(180deg);
+                transform: rotate(-180deg);
             }
             to {
                 transform: rotate(0deg);

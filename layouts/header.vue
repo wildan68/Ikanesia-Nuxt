@@ -66,6 +66,10 @@
                         label: 'Pesan',
                         to: '/chat',
                         icon: 'chatbox-ellipses'
+                    }, {
+                        label: 'Notifikasi',
+                        to: '/notification',
+                        icon: 'notifications'
                     }, ],
                 }, {
                     label: 'Panduan',
