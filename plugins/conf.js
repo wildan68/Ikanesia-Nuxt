@@ -2,13 +2,15 @@ import Vue from 'vue'
 
 export default ({ app }, inject) => {
     inject('conf', Vue.observable({
-        /*GLOBAL VARIABLE*/
-        URL_API: 'https://majorwebapi.herokuapp.com/mfstore/',
+        // GLOBAL VARIABLE
+        // URL_API: 'https://majorwebapi.herokuapp.com/mfstore/',
+        URL_API: 'http://192.168.18.99/majorapi/mfstore/',
         GET_IKAN_NEWS: 'get_ikan.php',
         SEARCH: 'search.php',
         GET_IKAN_DETAIL: 'detail_ikan.php',
+        CATEGORY: 'kategori.php',
 
-        /*GLOBAL METHOD*/
+        // GLOBAL METHOD
         rupiah(angka) {
             var rupiah = '';
             var angkarev = angka.toString().split('').reverse().join('');

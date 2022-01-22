@@ -10,7 +10,7 @@
       <div class="search-form" id="search-form">
         <form @submit.prevent="searchInput.length == 0 ? $toast.warning('Kolom Pencarian Kosong') : $nuxt.$router.push('/search/'+$conf.url_fetch(searchInput))">
           <input type="text" id="search-input" name="search-input" @input="searchInput = $event.target.value" placeholder="Cari Ikan.." autocomplete="off">
-          <button @click="searchInput.length == 0 ? $toast.warning('Kolom Pencarian Kosong') : $nuxt.$router.push('/search/'+$conf.url_fetch(searchInput))">
+          <button>
             <ion-icon name="search"></ion-icon>
           </button>
         </form>
@@ -142,7 +142,7 @@
                 }
             },
         },
-        mounted() {
+        async mounted() {
             var header = document.getElementById("header");
 
             var myScrollFunc = async() => {

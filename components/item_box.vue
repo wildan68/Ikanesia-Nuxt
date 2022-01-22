@@ -2,8 +2,9 @@
     <div class="item-box-container" v-if="data_item != null">
         <div class="item-box" v-for="(d, index) in data_item.slice(0, width)" :key="index">
             <nuxt-link :to="'/detail/'+d.id_ikan+'/'+$conf.url_fetch(d.nama.toLowerCase())" class="item-box-inside">
-                
-                
+                <div class="tag-category">
+                    <Tag :label="d.kategori"/>
+                </div>
                 <div class="img">
                     <img :src="'/upload/'+d.gambar">
                 </div>
@@ -32,12 +33,20 @@
 
 <script>
     import axios from 'axios'
+    import Tag from '@/components/tag.vue'
 
     export default {
         name: 'item_box',
         props: {
             api_url: String,
             func: String,
+            mode: {
+                type: String,
+                default: 'post',
+            },
+        },
+        components: {
+            Tag,
         },
         data() {
             return {
@@ -48,26 +57,40 @@
         },
         async mounted() {
             if (this.func == 'search') {
-                this.width = 20
-            }
-            else {
-                if (window.innerWidth >= 768) {
+                if (document.body.offsetWidth >= 768) {
                     this.width = 8
+                } else {
+                    this.width = 6
                 }
-                else {
+            } else {
+                if (document.body.offsetWidth >= 768) {
+                    this.width = 8
+                } else {
                     this.width = 6
                 }
             }
-            await axios
-                .post(this.$conf.URL_API + this.api_url)
-                .then(response => {
-                    this.data_item = response.data.data
-                })
-                .catch(error => {
-                    console.log(error)
-                })
-                .finally()
-            
+            // AXIOS
+            if (this.mode == 'post') {
+                await axios
+                    .post(this.$conf.URL_API + this.api_url)
+                    .then(response => {
+                        this.data_item = response.data.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+                    .finally()
+            } else if (this.mode == 'get') {
+                await axios
+                    .get(this.$conf.URL_API + this.api_url)
+                    .then(response => {
+                        this.data_item = response.data.data
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+                    .finally()
+            }
         },
     }
 </script>
@@ -125,15 +148,24 @@
             background-position: 0% 4%
         }
     }
+    
+    .item-box-container .item-box .item-box-inside .tag-category {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+    }
+    
     .item-box-container .item-box .item-box-inside .rating {
         display: flex;
         margin-top: 10px;
         align-items: center;
     }
+    
     .item-box-container .item-box .item-box-inside .rating .text {
         margin-left: 5px;
         color: var(--black-light);
     }
+    
     .item-box-container .item-box .item-box-inside .img {
         height: 6em;
         width: 100%;

@@ -50,11 +50,11 @@
             categoryMenu: [{
               label: 'Ikan<br>Hias',
               icon: 'betta-fish.svg',
-              to: '#',
+              to: '/hias',
             }, {
               label: 'Ikan<br>Indukan',
               icon: 'fish.svg',
-              to: '#',
+              to: '/indukan',
             },{
               label: 'Pakan<br>Vitamin, dll',
               icon: 'food-fish.svg',

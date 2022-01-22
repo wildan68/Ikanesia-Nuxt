@@ -1,6 +1,6 @@
 <template>
     <div class="category-menu">
-        <div class="cat-box" v-for="(cat, index) in items" :key="index" @click="$toast.info('Belum dibuat')"> 
+        <div class="cat-box" v-for="(cat, index) in items" :key="index" @click="$router.push('category'+cat.to)"> 
             <div class="cat-box-item">
                 <img :src="'/assets/'+cat.icon" class="ico"/>
                 <span v-html="cat.label"></span>
