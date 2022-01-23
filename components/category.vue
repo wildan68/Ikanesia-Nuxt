@@ -63,7 +63,16 @@
         opacity: 0.5;
     }
     
+    @media (max-width: 1100px) {
+        .category-menu {
+            grid-template-columns: auto auto auto auto;
+        }
+    }
+    
     @media (max-width: 768px) {
+        .category-menu {
+            grid-template-columns: auto auto auto;
+        }
         .category-menu .cat-box {
             width: auto;
         }

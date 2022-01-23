@@ -1,5 +1,5 @@
 <template>
-    <div class="item-box-container" v-if="data_item != null">
+    <div class="item-box-container" v-if="data_item != null" :style="columnSearch1100 ? 'grid-template-columns: auto auto auto auto' : 0">
         <div class="item-box" v-for="(d, index) in data_item.slice(0, width)" :key="index">
             <nuxt-link :to="'/detail/'+d.id_ikan+'/'+$conf.url_fetch(d.nama.toLowerCase())" class="item-box-inside">
                 <div class="tag-category">
@@ -22,7 +22,7 @@
             </nuxt-link>
         </div>
     </div>
-    <div v-else class="item-box-container">
+    <div v-else class="item-box-container" :style="columnSearch1100 ? 'grid-template-columns: auto auto auto auto' : 0">
         <div class="item-box" v-for="index in width" :key="index">
             <div class="item-box-inside" id="pre-load">
                 <!--lazy-->
@@ -44,6 +44,7 @@
                 type: String,
                 default: 'post',
             },
+            columnSearch1100: false,
         },
         components: {
             Tag,
@@ -57,8 +58,9 @@
         },
         async mounted() {
             if (this.func == 'search') {
-                if (document.body.offsetWidth >= 768) {
+                if (await document.body.offsetWidth >= 768) {
                     this.width = 8
+                    this.columnSearch1100 = true
                 } else {
                     this.width = 6
                 }
@@ -201,6 +203,13 @@
         }
         .item-box-container .item-box .item-box-inside .img {
             width: 100%;
+        }
+    }
+    
+    @media (max-width: 1100px) {
+        .item-box-container {
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto;
         }
     }
     
