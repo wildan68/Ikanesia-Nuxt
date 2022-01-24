@@ -11,14 +11,17 @@
           </div>
           <div class="desc-info">
             <h3>{{ d.nama }}</h3>
+            <div class="tag-category">
+                <Tag :label="$category.map[d.kategori]" />
+              </div>
             <div class="sub-desc">
               <span class="stok"
                 :style="d.status == 'Ada' ? 'background-color: var(--green-light)' : 'background-color: var(--red-light)'">
                 <b :style="d.status == 'Ada' ? 'color: var(--green-dark)' : 'color: var(--red)'">{{ d.status }}</b>
               </span>
               <div class="rating">
-                <rating :rating="parseFloat(d.rating)" :increment="0.5" :max-rating="5" :read-only="true" :star-size="14"
-                  :show-rating="false"></rating>
+                <rating :rating="parseFloat(d.rating)" :increment="0.5" :max-rating="5" :read-only="true"
+                  :star-size="14" :show-rating="false"></rating>
                 <span class="text">{{ d.rating }}</span>
               </div>
             </div>
@@ -86,6 +89,7 @@
     import LoadPage from '../../components/load_page.vue'
     import NotFound from '../../components/not_found.vue'
     import HeaderDetail from '../../components/header_detail.vue'
+    import Tag from '../../components/tag.vue'
 
     export default {
         name: 'detail_layout',
@@ -93,6 +97,7 @@
             LoadPage,
             NotFound,
             HeaderDetail,
+            Tag,
         },
         data() {
             return {
@@ -195,7 +200,10 @@
         flex: 1;
         height: auto;
     }
-    
+    .detail-item .desc-info .tag-category {
+        display: flex;
+        margin-bottom: 20px;
+    }
     .detail-item .desc-info .sub-desc {
         display: flex;
         align-items: center;

@@ -13,6 +13,8 @@
     --yellow-dark: rgb(170, 153, 0);
     --red: #d11414f5;
     --red-light: #fab1a0;
+    --tag-light: #ffeaa7;
+    --tag: #aa7e06;
 }
 
 * {
@@ -63,7 +65,7 @@ ion-icon {
 }
 
 .wrapper-content .wrapper {
-    width: 1200px;
+    width: 1300px;
 }
 
 .flex {

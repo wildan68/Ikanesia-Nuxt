@@ -15,8 +15,8 @@
 
 <style scoped>
     .tag-component {
-        background-color: var(--red-light);
-        color: var(--red);
+        background-color: var(--tag-light);
+        color: var(--tag);
         padding: 2px 5px 2px 5px;
         border-radius: 7px;
         font-size: 10px;

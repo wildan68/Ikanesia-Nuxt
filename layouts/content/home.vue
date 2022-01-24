@@ -100,7 +100,9 @@
     .home .left {
         flex: 1;
     }
-    
+    .home .right {
+        flex: 1;
+    }
     .home .title {
         position: relative;
     }

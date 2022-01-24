@@ -1,0 +1,12 @@
+ID Category | Name Category
+===========================
+0		Halfmoon
+1		Plakat
+2		Giant
+3		Dumbo
+4		Ear
+5		Slayer
+6		Alien
+7		Crown tail
+8		Double tail
+9		Fancy

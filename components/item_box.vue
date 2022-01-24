@@ -1,9 +1,9 @@
 <template>
-    <div class="item-box-container" v-if="data_item != null" :style="columnSearch1100 ? 'grid-template-columns: auto auto auto auto' : 0">
+    <div class="item-box-container" v-if="data_item != null">
         <div class="item-box" v-for="(d, index) in data_item.slice(0, width)" :key="index">
             <nuxt-link :to="'/detail/'+d.id_ikan+'/'+$conf.url_fetch(d.nama.toLowerCase())" class="item-box-inside">
                 <div class="tag-category">
-                    <Tag :label="d.kategori"/>
+                    <Tag :label="$category.map[d.kategori]"/>
                 </div>
                 <div class="img">
                     <img :src="'/upload/'+d.gambar">
@@ -22,7 +22,7 @@
             </nuxt-link>
         </div>
     </div>
-    <div v-else class="item-box-container" :style="columnSearch1100 ? 'grid-template-columns: auto auto auto auto' : 0">
+    <div v-else class="item-box-container">
         <div class="item-box" v-for="index in width" :key="index">
             <div class="item-box-inside" id="pre-load">
                 <!--lazy-->
@@ -44,7 +44,6 @@
                 type: String,
                 default: 'post',
             },
-            columnSearch1100: false,
         },
         components: {
             Tag,
@@ -59,13 +58,12 @@
         async mounted() {
             if (this.func == 'search') {
                 if (await document.body.offsetWidth >= 768) {
-                    this.width = 8
-                    this.columnSearch1100 = true
+                    this.width = 20
                 } else {
-                    this.width = 6
+                    this.width = 20
                 }
             } else {
-                if (document.body.offsetWidth >= 768) {
+                if (await document.body.offsetWidth >= 768) {
                     this.width = 8
                 } else {
                     this.width = 6
@@ -100,7 +98,8 @@
 <style scoped>
     .item-box-container {
         display: grid;
-        grid-template-columns: auto auto auto auto;
+        grid-template-columns: repeat(auto-fill, 9.5em);
+        justify-content: center;
     }
     
     .item-box-container .item-box {
@@ -206,16 +205,11 @@
         }
     }
     
-    @media (max-width: 1100px) {
-        .item-box-container {
-            display: grid;
-            grid-template-columns: auto auto auto auto auto auto;
-        }
-    }
-    
     @media (max-width: 768px) {
         .item-box-container {
-            grid-template-columns: auto auto auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 8em);
+            justify-content: center;
         }
         .item-box-container .item-box {
             height: auto;

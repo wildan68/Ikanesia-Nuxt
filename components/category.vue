@@ -22,7 +22,8 @@
     .category-menu {
         display: grid;
         padding: 0.5em;
-        grid-template-columns: auto auto auto;
+        grid-template-columns: repeat(auto-fill, 13em);
+        justify-content: center;
     }
     
     .category-menu>div {
@@ -63,15 +64,9 @@
         opacity: 0.5;
     }
     
-    @media (max-width: 1100px) {
-        .category-menu {
-            grid-template-columns: auto auto auto auto;
-        }
-    }
-    
     @media (max-width: 768px) {
         .category-menu {
-            grid-template-columns: auto auto auto;
+            grid-template-columns: repeat(auto-fill, 7.5em);
         }
         .category-menu .cat-box {
             width: auto;

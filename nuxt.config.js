@@ -30,6 +30,7 @@ module.exports = {
         { src: './plugins/ripple.js', ssr: false },
         { src: './plugins/toast.js', ssr: false },
         { src: './plugins/rating.js', ssr: false },
+        { src: './plugins/categoryMap.js', },
     ],
     // Toast
     /*

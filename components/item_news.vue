@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="swiper-wrapper" v-else>
-      <div class="swiper-slide" v-for="(d, index) in dataIkan" :key="index">
+      <div class="swiper-slide" v-for="(d, index) in dataIkan.slice(0,6)" :key="index">
         <div class="item-news-list" @mouseover="itemHover(index)" @mouseout="itemBlur(index)">
           <div class="rating">
             <ion-icon :name="$conf.rating(d.rating)"></ion-icon>
