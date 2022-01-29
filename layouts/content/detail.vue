@@ -6,7 +6,7 @@
         <div class="detail-item" v-for="(d, index) in dataIkan.data" :key="index">
           <div class="product-info">
             <div class="img">
-              <img :src="'/upload/'+d.gambar" />
+              <img :src="'https://adminmfstore.cleverapps.io/_asset/upload_gambar/'+d.gambar" />
             </div>
           </div>
           <div class="desc-info">

@@ -23,8 +23,8 @@
             <div class="location">
               <ion-icon name="location"></ion-icon> Tegal, Jawa Tengah
             </div>
-            <nuxt-link class="more-info"
-              :to="'/detail/'+d.id_ikan+'/'+$conf.url_fetch(d.nama.toLowerCase())">Lihat Ikan</nuxt-link>
+            <nuxt-link class="more-info" :to="'/detail/'+d.id_ikan+'/'+$conf.url_fetch(d.nama.toLowerCase())">Lihat Ikan
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -96,6 +96,7 @@
         display: flex;
         justify-content: center;
     }
+    
     .home .left .item-news .swiper-slide .item-news-list {
         background-color: var(--white);
         width: 100%;

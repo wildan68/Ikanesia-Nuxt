@@ -195,7 +195,7 @@
     
     @media (max-width: 1366px) {
         .item-box-container {
-            grid-template-columns: repeat(auto-fill, 9em);
+            grid-template-columns: repeat(auto-fill, 8.5em);
             justify-content: center;
         }
         .item-box-container .item-box {
@@ -212,7 +212,7 @@
     @media (max-width: 768px) {
         .item-box-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, 8em);
+            grid-template-columns: repeat(auto-fill, 7.5em);
             justify-content: center;
         }
         .item-box-container .item-box {
