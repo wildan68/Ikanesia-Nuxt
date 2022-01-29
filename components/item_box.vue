@@ -6,7 +6,7 @@
                     <Tag :label="$category.map[d.kategori]"/>
                 </div>
                 <div class="img">
-                    <img :src="'/upload/'+d.gambar">
+                    <img :src="'https://adminmfstore.cleverapps.io/_asset/upload_gambar/'+d.gambar">
                 </div>
                 <div class="item-info">
                     {{ $conf.excerpt_nama(d.nama) }}
@@ -194,6 +194,10 @@
     }
     
     @media (max-width: 1366px) {
+        .item-box-container {
+            grid-template-columns: repeat(auto-fill, 9em);
+            justify-content: center;
+        }
         .item-box-container .item-box {
             height: auto;
         }
