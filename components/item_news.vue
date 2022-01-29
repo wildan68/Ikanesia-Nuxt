@@ -15,7 +15,7 @@
             {{ d.rating }}
           </div>
           <div class="img">
-            <img :src="'/upload/'+ d.gambar" :id="'img_item_'+index">
+            <img :src="'https://adminmfstore.cleverapps.io/_asset/upload_gambar/'+ d.gambar" :id="'img_item_'+index">
           </div>
           <div class="item-info">
             {{ d.nama }}
